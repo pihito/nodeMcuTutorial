@@ -9,14 +9,21 @@ function init_i2c_display()
      disp = u8g.ssd1306_128x64_i2c(sla)
 end
 
+function prepare()
+     disp:setFont(u8g.font_6x10)
+     disp:setFontRefHeightExtendedText()
+     disp:setDefaultForegroundColor()
+     disp:setFontPosTop()
+end
+
 function draw()
      --disp:setFont(u8g.font_unifont)
-     disp:setFont(u8g.font_6x10)
+     --disp:setFont(u8g.font_6x10)
      disp:drawStr(5,5,"temp: " )
 end
 
 init_i2c_display()
-
+prepare()
   -- picture loop
   disp:firstPage()  
   repeat 
